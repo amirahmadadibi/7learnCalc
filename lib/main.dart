@@ -14,14 +14,16 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String input = '';
+  String result = '';
   void onKeyboardItemClick(String text) {
     if (text == '=') {
       Parser parser = Parser();
       Expression expression = parser.parse(input);
       ContextModel contextModel = ContextModel();
-      double result = expression.evaluate(EvaluationType.REAL, contextModel);
+      double resultExpersion =
+          expression.evaluate(EvaluationType.REAL, contextModel);
       setState(() {
-        input = result.toString();
+        result = resultExpersion.toString();
       });
       return;
     }
@@ -48,10 +50,23 @@ class _MyAppState extends State<MyApp> {
               Expanded(
                 flex: 3,
                 child: Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.all(20),
                   color: Color(0xffF1F6F9),
-                  child: Text(
-                    input,
-                    style: TextStyle(fontSize: 30),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        input,
+                        style: TextStyle(fontSize: 30),
+                      ),
+                      Text(
+                        result,
+                        style:
+                            TextStyle(fontSize: 40, color: Color(0xff655DBB)),
+                      )
+                    ],
                   ),
                 ),
               ),
