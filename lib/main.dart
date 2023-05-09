@@ -14,15 +14,21 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   String input = '';
   void onKeyboardItemClick(String text) {
+    if(text == '='){
+
+    }
+
     if (text == 'ce') {
       setState(() {
         input = input.substring(0, input.length - 1);
       });
-    } else {
+    } 
+
+    
       setState(() {
         input = input + text;
       });
-    }
+    
   }
 
   @override
