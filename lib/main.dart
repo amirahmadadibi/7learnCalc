@@ -4,8 +4,20 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String input = '';
+  void onKeyboardItemClick(String text) {
+    setState(() {
+      input = input + text;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +30,10 @@ class MyApp extends StatelessWidget {
                 flex: 3,
                 child: Container(
                   color: Color(0xffF1F6F9),
+                  child: Text(
+                    input,
+                    style: TextStyle(fontSize: 30),
+                  ),
                 ),
               ),
               Expanded(
@@ -26,21 +42,11 @@ class MyApp extends StatelessWidget {
                     color: Color(0xff394867),
                     child: Column(
                       children: [
-                        KeyboardRow('ac', 'ce', '%', '/', (itemLable) {
-                          print(itemLable);
-                        }),
-                        KeyboardRow('7', '8', '9', '*', (itemLable) {
-                          print(itemLable);
-                        }),
-                        KeyboardRow('4', '5', '6', '-', (itemLable) {
-                          print(itemLable);
-                        }),
-                        KeyboardRow('1', '2', '3', '+', (itemLable) {
-                          print(itemLable);
-                        }),
-                        KeyboardRow('00', '0', '.', '=', (itemLable) {
-                          print(itemLable);
-                        }),
+                        KeyboardRow('ac', 'ce', '%', '/', onKeyboardItemClick),
+                        KeyboardRow('7', '8', '9', '*', onKeyboardItemClick),
+                        KeyboardRow('4', '5', '6', '-', onKeyboardItemClick),
+                        KeyboardRow('1', '2', '3', '+', onKeyboardItemClick),
+                        KeyboardRow('00', '0', '.', '=', onKeyboardItemClick),
                       ],
                     )),
               )
