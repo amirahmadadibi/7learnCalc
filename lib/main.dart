@@ -26,11 +26,21 @@ class MyApp extends StatelessWidget {
                     color: Color(0xff394867),
                     child: Column(
                       children: [
-                        KeyboardRow('ac', 'ce', '%', '/'),
-                        KeyboardRow('7', '8', '9', '*'),
-                        KeyboardRow('4', '5', '6', '-'),
-                        KeyboardRow('1', '2', '3', '+'),
-                        KeyboardRow('00', '0', '.', '='),
+                        KeyboardRow('ac', 'ce', '%', '/', (itemLable) {
+                          print(itemLable);
+                        }),
+                        KeyboardRow('7', '8', '9', '*', (itemLable) {
+                          print(itemLable);
+                        }),
+                        KeyboardRow('4', '5', '6', '-', (itemLable) {
+                          print(itemLable);
+                        }),
+                        KeyboardRow('1', '2', '3', '+', (itemLable) {
+                          print(itemLable);
+                        }),
+                        KeyboardRow('00', '0', '.', '=', (itemLable) {
+                          print(itemLable);
+                        }),
                       ],
                     )),
               )
@@ -43,7 +53,8 @@ class MyApp extends StatelessWidget {
 }
 
 class KeyboardRow extends StatelessWidget {
-  KeyboardRow(this.text1, this.text2, this.text3, this.text4, {super.key});
+  KeyboardRow(this.text1, this.text2, this.text3, this.text4, this.negahban,
+      {super.key});
 
   var lableColor = Color(0xff9BA4B5);
   var buttonBackground = Color(0xff212A3E);
@@ -51,6 +62,7 @@ class KeyboardRow extends StatelessWidget {
   String text2;
   String text3;
   String text4;
+  Function(String) negahban;
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +70,9 @@ class KeyboardRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            negahban(text1);
+          },
           style: TextButton.styleFrom(backgroundColor: buttonBackground),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -69,7 +83,9 @@ class KeyboardRow extends StatelessWidget {
           ),
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            negahban(text2);
+          },
           style: TextButton.styleFrom(backgroundColor: buttonBackground),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -80,7 +96,9 @@ class KeyboardRow extends StatelessWidget {
           ),
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            negahban(text3);
+          },
           style: TextButton.styleFrom(backgroundColor: buttonBackground),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -91,7 +109,9 @@ class KeyboardRow extends StatelessWidget {
           ),
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            negahban(text4);
+          },
           style: TextButton.styleFrom(backgroundColor: buttonBackground),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
