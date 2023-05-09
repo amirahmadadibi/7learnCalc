@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,21 +15,27 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   String input = '';
   void onKeyboardItemClick(String text) {
-    if(text == '='){
-
+    if (text == '=') {
+      Parser parser = Parser();
+      Expression expression = parser.parse(input);
+      ContextModel contextModel = ContextModel();
+      double result = expression.evaluate(EvaluationType.REAL, contextModel);
+      setState(() {
+        input = result.toString();
+      });
+      return;
     }
 
     if (text == 'ce') {
       setState(() {
         input = input.substring(0, input.length - 1);
       });
-    } 
+      return;
+    }
 
-    
-      setState(() {
-        input = input + text;
-      });
-    
+    setState(() {
+      input = input + text;
+    });
   }
 
   @override
