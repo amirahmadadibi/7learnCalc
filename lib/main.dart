@@ -16,6 +16,13 @@ class _MyAppState extends State<MyApp> {
   String input = '';
   String result = '';
   void onKeyboardItemClick(String text) {
+    if (text == 'ac') {
+      setState(() {
+        input = '';
+        result = '';
+      });
+      return;
+    }
     if (text == '=') {
       Parser parser = Parser();
       Expression expression = parser.parse(input);
@@ -29,9 +36,11 @@ class _MyAppState extends State<MyApp> {
     }
 
     if (text == 'ce') {
-      setState(() {
-        input = input.substring(0, input.length - 1);
-      });
+      if (input.length > 0) {
+        setState(() {
+          input = input.substring(0, input.length - 1);
+        });
+      }
       return;
     }
 
@@ -75,6 +84,7 @@ class _MyAppState extends State<MyApp> {
                 child: Container(
                     color: Color(0xff394867),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         KeyboardRow('ac', 'ce', '%', '/', onKeyboardItemClick),
                         KeyboardRow('7', '8', '9', '*', onKeyboardItemClick),
