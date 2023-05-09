@@ -64,7 +64,7 @@ class KeyboardRow extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               text1,
-              style: TextStyle(fontSize: 26, color: lableColor),
+              style: TextStyle(fontSize: 26, color: getLableColor(text1)),
             ),
           ),
         ),
@@ -75,7 +75,7 @@ class KeyboardRow extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               text2,
-              style: TextStyle(fontSize: 26, color: lableColor),
+              style: TextStyle(fontSize: 26, color: getLableColor(text2)),
             ),
           ),
         ),
@@ -86,7 +86,7 @@ class KeyboardRow extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               text3,
-              style: TextStyle(fontSize: 26, color: lableColor),
+              style: TextStyle(fontSize: 26, color: getLableColor(text3)),
             ),
           ),
         ),
@@ -97,11 +97,29 @@ class KeyboardRow extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               text4,
-              style: TextStyle(fontSize: 26, color: lableColor),
+              style: TextStyle(fontSize: 26, color: getLableColor(text4)),
             ),
           ),
         ),
       ],
     );
+  }
+
+  bool isCharAFunction(String text) {
+    var list = ['ac', 'ce', '%', '/', '*', '-', '+', '='];
+    for (var item in list) {
+      if (item == text) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  Color getLableColor(String text) {
+    if (isCharAFunction(text)) {
+      return Color(0xff655DBB);
+    } else {
+      return Color(0xff9BA4B5);
+    }
   }
 }
