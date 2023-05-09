@@ -26,9 +26,11 @@ class MyApp extends StatelessWidget {
                     color: Colors.blue,
                     child: Column(
                       children: [
-                        KeyboardRow(),
-                        KeyboardRow(),
-                        KeyboardRow(),
+                        KeyboardRow('ac', 'ce', '%', '/'),
+                        KeyboardRow('7', '8', '9', '*'),
+                        KeyboardRow('4', '5', '6', '-'),
+                        KeyboardRow('1', '2', '3', '+'),
+                        KeyboardRow('00', '0', '.', '='),
                       ],
                     )),
               )
@@ -41,10 +43,14 @@ class MyApp extends StatelessWidget {
 }
 
 class KeyboardRow extends StatelessWidget {
-  KeyboardRow({super.key});
+  KeyboardRow(this.text1, this.text2, this.text3, this.text4, {super.key});
 
   var color = Colors.black;
-  
+  String text1;
+  String text2;
+  String text3;
+  String text4;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -55,7 +61,7 @@ class KeyboardRow extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              '1',
+              text1,
               style: TextStyle(fontSize: 26, color: color),
             ),
           ),
@@ -65,7 +71,7 @@ class KeyboardRow extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              '2',
+              text2,
               style: TextStyle(fontSize: 26, color: color),
             ),
           ),
@@ -75,7 +81,7 @@ class KeyboardRow extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              '3',
+              text3,
               style: TextStyle(fontSize: 26, color: color),
             ),
           ),
@@ -85,7 +91,7 @@ class KeyboardRow extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              '4',
+              text4,
               style: TextStyle(fontSize: 26, color: color),
             ),
           ),
