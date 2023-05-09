@@ -26,43 +26,9 @@ class MyApp extends StatelessWidget {
                     color: Colors.blue,
                     child: Column(
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                '1',
-                                style:
-                                    TextStyle(fontSize: 26, color: Colors.red),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                '2',
-                                style:
-                                    TextStyle(fontSize: 26, color: Colors.red),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                '3',
-                                style:
-                                    TextStyle(fontSize: 26, color: Colors.red),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                '4',
-                                style:
-                                    TextStyle(fontSize: 26, color: Colors.red),
-                              ),
-                            ),
-                          ],
-                        ),
+                        KeyboardRow(),
+                        KeyboardRow(),
+                        KeyboardRow(),
                       ],
                     )),
               )
@@ -70,6 +36,61 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class KeyboardRow extends StatelessWidget {
+  KeyboardRow({super.key});
+
+  var color = Colors.black;
+  
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        TextButton(
+          onPressed: () {},
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              '1',
+              style: TextStyle(fontSize: 26, color: color),
+            ),
+          ),
+        ),
+        TextButton(
+          onPressed: () {},
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              '2',
+              style: TextStyle(fontSize: 26, color: color),
+            ),
+          ),
+        ),
+        TextButton(
+          onPressed: () {},
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              '3',
+              style: TextStyle(fontSize: 26, color: color),
+            ),
+          ),
+        ),
+        TextButton(
+          onPressed: () {},
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              '4',
+              style: TextStyle(fontSize: 26, color: color),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
