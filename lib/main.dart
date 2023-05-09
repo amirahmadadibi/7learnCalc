@@ -17,13 +17,13 @@ class MyApp extends StatelessWidget {
               Expanded(
                 flex: 3,
                 child: Container(
-                  color: Colors.red,
+                  color: Color(0xffF1F6F9),
                 ),
               ),
               Expanded(
                 flex: 7,
                 child: Container(
-                    color: Colors.blue,
+                    color: Color(0xff394867),
                     child: Column(
                       children: [
                         KeyboardRow('ac', 'ce', '%', '/'),
@@ -45,7 +45,8 @@ class MyApp extends StatelessWidget {
 class KeyboardRow extends StatelessWidget {
   KeyboardRow(this.text1, this.text2, this.text3, this.text4, {super.key});
 
-  var color = Colors.black;
+  var lableColor = Color(0xff9BA4B5);
+  var buttonBackground = Color(0xff212A3E);
   String text1;
   String text2;
   String text3;
@@ -58,41 +59,45 @@ class KeyboardRow extends StatelessWidget {
       children: [
         TextButton(
           onPressed: () {},
+          style: TextButton.styleFrom(backgroundColor: buttonBackground),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
               text1,
-              style: TextStyle(fontSize: 26, color: color),
+              style: TextStyle(fontSize: 26, color: lableColor),
             ),
           ),
         ),
         TextButton(
           onPressed: () {},
+          style: TextButton.styleFrom(backgroundColor: buttonBackground),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
               text2,
-              style: TextStyle(fontSize: 26, color: color),
+              style: TextStyle(fontSize: 26, color: lableColor),
             ),
           ),
         ),
         TextButton(
           onPressed: () {},
+          style: TextButton.styleFrom(backgroundColor: buttonBackground),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
               text3,
-              style: TextStyle(fontSize: 26, color: color),
+              style: TextStyle(fontSize: 26, color: lableColor),
             ),
           ),
         ),
         TextButton(
           onPressed: () {},
+          style: TextButton.styleFrom(backgroundColor: buttonBackground),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
               text4,
-              style: TextStyle(fontSize: 26, color: color),
+              style: TextStyle(fontSize: 26, color: lableColor),
             ),
           ),
         ),
