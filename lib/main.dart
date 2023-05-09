@@ -23,8 +23,48 @@ class MyApp extends StatelessWidget {
               Expanded(
                 flex: 7,
                 child: Container(
-                  color: Colors.blue,
-                ),
+                    color: Colors.blue,
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '1',
+                                style:
+                                    TextStyle(fontSize: 26, color: Colors.red),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '2',
+                                style:
+                                    TextStyle(fontSize: 26, color: Colors.red),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '3',
+                                style:
+                                    TextStyle(fontSize: 26, color: Colors.red),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '4',
+                                style:
+                                    TextStyle(fontSize: 26, color: Colors.red),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    )),
               )
             ],
           ),
