@@ -52,6 +52,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: SafeArea(
           child: Column(
@@ -61,19 +62,30 @@ class _MyAppState extends State<MyApp> {
                 child: Container(
                   width: double.infinity,
                   padding: EdgeInsets.all(20),
-                  color: Color(0xffF1F6F9),
+                  color: Color(0xffffffff),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
+                      Center(
+                        child: SizedBox(
+                            height: 36,
+                            width: 148,
+                            child: Image.asset('assets/images/logo.png')),
+                      ),
+                      Spacer(),
                       Text(
                         input,
-                        style: TextStyle(fontSize: 30),
+                        style:
+                            TextStyle(fontSize: 30, color: Color(0xffAAB0BD)),
+                      ),
+                      const SizedBox(
+                        height: 12,
                       ),
                       Text(
                         result,
                         style:
-                            TextStyle(fontSize: 40, color: Color(0xff655DBB)),
+                            TextStyle(fontSize: 50, color: Color(0xff000000)),
                       )
                     ],
                   ),
@@ -82,7 +94,7 @@ class _MyAppState extends State<MyApp> {
               Expanded(
                 flex: 7,
                 child: Container(
-                    color: Color(0xff394867),
+                    color: Color(0xffffffff),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -119,55 +131,83 @@ class KeyboardRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        TextButton(
-          onPressed: () {
+        GestureDetector(
+          onTap: () {
             negahban(text1);
           },
-          style: TextButton.styleFrom(backgroundColor: buttonBackground),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              text1,
-              style: TextStyle(fontSize: 26, color: getLableColor(text1)),
+          child: Container(
+            width: 70,
+            height: 70,
+            decoration: BoxDecoration(
+                color: getBackgroundColor(text1),
+                borderRadius: BorderRadius.circular(5)),
+            child: Center(
+              child: Text(
+                text1,
+                style: TextStyle(
+                    fontSize: getLableActionSize(text1),
+                    color: getLableColor(text1)),
+              ),
             ),
           ),
         ),
-        TextButton(
-          onPressed: () {
+        GestureDetector(
+          onTap: () {
             negahban(text2);
           },
-          style: TextButton.styleFrom(backgroundColor: buttonBackground),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              text2,
-              style: TextStyle(fontSize: 26, color: getLableColor(text2)),
+          child: Container(
+            width: 70,
+            height: 70,
+            decoration: BoxDecoration(
+                color: getBackgroundColor(text2),
+                borderRadius: BorderRadius.circular(5)),
+            child: Center(
+              child: Text(
+                text2,
+                style: TextStyle(
+                    fontSize: getLableActionSize(text2),
+                    color: getLableColor(text2)),
+              ),
             ),
           ),
         ),
-        TextButton(
-          onPressed: () {
+        GestureDetector(
+          onTap: () {
             negahban(text3);
           },
-          style: TextButton.styleFrom(backgroundColor: buttonBackground),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              text3,
-              style: TextStyle(fontSize: 26, color: getLableColor(text3)),
+          child: Container(
+            width: 70,
+            height: 70,
+            decoration: BoxDecoration(
+                color: getBackgroundColor(text3),
+                borderRadius: BorderRadius.circular(5)),
+            child: Center(
+              child: Text(
+                text3,
+                style: TextStyle(
+                    fontSize: getLableActionSize(text3),
+                    color: getLableColor(text3)),
+              ),
             ),
           ),
         ),
-        TextButton(
-          onPressed: () {
+        GestureDetector(
+          onTap: () {
             negahban(text4);
           },
-          style: TextButton.styleFrom(backgroundColor: buttonBackground),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              text4,
-              style: TextStyle(fontSize: 26, color: getLableColor(text4)),
+          child: Container(
+            width: 70,
+            height: 70,
+            decoration: BoxDecoration(
+                color: getBackgroundColor(text4),
+                borderRadius: BorderRadius.circular(5)),
+            child: Center(
+              child: Text(
+                text4,
+                style: TextStyle(
+                    fontSize: getLableActionSize(text4),
+                    color: getLableColor(text4)),
+              ),
             ),
           ),
         ),
@@ -187,9 +227,25 @@ class KeyboardRow extends StatelessWidget {
 
   Color getLableColor(String text) {
     if (isCharAFunction(text)) {
-      return Color(0xff655DBB);
+      return Color(0xff007BEC);
     } else {
-      return Color(0xff9BA4B5);
+      return Color(0xff000000);
+    }
+  }
+
+  double getLableActionSize(String text) {
+    if (isCharAFunction(text)) {
+      return 25;
+    } else {
+      return 30;
+    }
+  }
+
+  Color getBackgroundColor(String text) {
+    if (isCharAFunction(text)) {
+      return Color(0xff1A007BEC);
+    } else {
+      return Color(0xffF5F5F5);
     }
   }
 }
